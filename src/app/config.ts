@@ -1,4 +1,4 @@
 export const config = {
     appName: "Berry Cake",
-    appUrl: "http://localhost:4200"
+    appUrl: "https://osakitsukiko.github.com/berrycake"
 };
