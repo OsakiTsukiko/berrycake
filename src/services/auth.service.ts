@@ -23,7 +23,7 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   registerApp(rawInstanceUrl: string): void {
-    const instanceUrl = rawInstanceUrl.startsWith("http://") || rawInstanceUrl.startsWith("htts://") ? rawInstanceUrl : "https://" + rawInstanceUrl;
+    const instanceUrl = rawInstanceUrl.startsWith("http://") || rawInstanceUrl.startsWith("https://") ? rawInstanceUrl : "https://" + rawInstanceUrl;
     this.http.post<Partial<AppRegistrationResponse>>(
       instanceUrl + "/api/v1/apps",
       {
