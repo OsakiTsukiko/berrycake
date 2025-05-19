@@ -9,6 +9,13 @@ export const authTokenGuard: CanActivateFn = (route, state) => {
   if (authService.hasToken()) {
     return true;
   }
+
+  const url = new URL(window.location.href);
+  const code = url.searchParams.get('code');
+  if (code) {
+    return true;
+  }
+  
   authService.clearCredentials();
   return router.parseUrl('/connect');
 };
