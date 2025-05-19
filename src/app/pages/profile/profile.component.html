@@ -1,0 +1,26 @@
+@if (!loading()) {
+<div class="cont">
+    <img [src]="profile() ? profile().avatar : ''">
+    <div class="card">
+        <span class="orange">{{ profile() ? profile().display_name : "" }}</span>
+        <span class="orange2">{{ profile() ? profile().username : "" }}&#64;{{instance().replaceAll("https://", "").replaceAll("http://", "")}}</span>
+        <hr>
+        <div class="note">
+            @for (line of lines(); track line) {
+                <span>{{line}}</span><br>
+            } 
+        </div>
+    </div>
+</div>
+@for (field of (profile() ? profile().source.fields : []); track field) {
+<div class="field">
+    <span class="name">
+        {{field.name}}
+    </span>
+    <span class="value">
+        {{field.value}}
+    </span>
+</div>
+}} @else {
+<div>Loading...</div>
+}

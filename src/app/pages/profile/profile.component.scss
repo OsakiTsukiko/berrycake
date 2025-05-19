@@ -1,0 +1,86 @@
+:host {
+    width: 100%;
+    flex: 1;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+
+    .cont {
+        width: fit-content;
+        height: fit-content;
+        box-sizing: border-box;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #404040;
+        display: flex;
+        gap: 10px;
+        background: #262626;
+        
+        img {
+            border-radius: 3px;
+            width: 200px;
+            height: 200px;
+        }
+
+        .card {
+            width: 350px;
+            box-sizing: border-box;
+            padding: 10px;
+            border: 1px solid #404040;
+            border-radius: 3px;
+            background: #262626;
+            max-height: 200px;
+            overflow-y: scroll;
+
+            display: flex;
+            flex-direction: column;
+
+            span {
+                font-family: "Roboto";
+                font-weight: 700;
+            }
+
+            hr {
+                width: 100%;
+                height: 1px;
+                border: 0px;
+                background: #404040;
+            }
+
+            .note {
+                flex: 1;
+                width: 100%;
+                overflow-y: scroll;
+            }
+
+            .orange {
+                color: #fbbf24;
+            }
+
+            .orange2 {
+                color: #f59e0b;
+            }
+        }
+    }
+
+    .field {
+        width: 582px;
+        background: #262626;
+        box-sizing: border-box;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #404040;
+        font-family: "Roboto";
+        font-weight: 700;
+        font-size: 16px;
+
+        .name {
+            color: #fbbf24;
+            min-width: 80px;
+            display: inline-block;
+        }
+    }
+}

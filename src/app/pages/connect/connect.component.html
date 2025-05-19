@@ -1,0 +1,8 @@
+<div>
+    <span>Connect to instance</span>
+    <label class="wrapper" for="instance-url">
+        <input type="text" id="instance-url" [(ngModel)]="instanceUrl">
+        <label>Instance URL</label>
+    </label>
+    <button (click)="connect()" [disabled]="!instanceUrl">Enter</button>
+</div>
