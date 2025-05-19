@@ -1,17 +1,18 @@
+import { Component, signal } from '@angular/core';
+import { FeedComponent } from '../feed.component';
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, signal } from '@angular/core';
-import { AuthService } from '../../../services/auth.service';
+import { AuthService } from '../../../../services/auth.service';
 import { DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-feed',
+  selector: 'app-home-feed',
   standalone: true,
   imports: [DatePipe],
-  templateUrl: './feed.component.html',
-  styleUrl: './feed.component.scss'
+  templateUrl: './home-feed.component.html',
+  styleUrl: './home-feed.component.scss'
 })
-export class FeedComponent {
-  @Input() endpointUrl!: string;
+export class HomeFeedComponent {
+  endpointUrl = "/api/v1/timelines/home?limit=20";
   
   posts = signal<any[]>([]);
   loading = signal(false);
@@ -36,7 +37,11 @@ export class FeedComponent {
     const lastId = this.getLastPostId();
     if (lastId) url += `&max_id=${lastId}`;
 
-    this.http.get<any[]>(url).subscribe({
+    this.http.get<any[]>(url, {
+      headers: {
+        Authorization: `Bearer ${this.auth.getToken()!}` // pray it finds one
+      }
+    }).subscribe({
       next: data => {
         if (data.length === 0) {
           this.hasMore.set(false);

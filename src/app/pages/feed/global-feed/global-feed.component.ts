@@ -1,17 +1,18 @@
+import { Component, signal } from '@angular/core';
+import { FeedComponent } from '../feed.component';
 import { HttpClient } from '@angular/common/http';
-import { Component, Input, signal } from '@angular/core';
-import { AuthService } from '../../../services/auth.service';
+import { AuthService } from '../../../../services/auth.service';
 import { DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-feed',
+  selector: 'app-global-feed',
   standalone: true,
   imports: [DatePipe],
-  templateUrl: './feed.component.html',
-  styleUrl: './feed.component.scss'
+  templateUrl: './global-feed.component.html',
+  styleUrl: './global-feed.component.scss'
 })
-export class FeedComponent {
-  @Input() endpointUrl!: string;
+export class GlobalFeedComponent {
+  endpointUrl = "/api/v1/timelines/public?limit=20";
   
   posts = signal<any[]>([]);
   loading = signal(false);

@@ -1,17 +1,18 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, Input, signal } from '@angular/core';
-import { AuthService } from '../../../services/auth.service';
+import { Component, signal } from '@angular/core';
+import { FeedComponent } from '../feed.component';
 import { DatePipe } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../../../../services/auth.service';
 
 @Component({
-  selector: 'app-feed',
+  selector: 'app-local-feed',
   standalone: true,
   imports: [DatePipe],
-  templateUrl: './feed.component.html',
-  styleUrl: './feed.component.scss'
+  templateUrl: './local-feed.component.html',
+  styleUrl: './local-feed.component.scss'
 })
-export class FeedComponent {
-  @Input() endpointUrl!: string;
+export class LocalFeedComponent {
+  endpointUrl = "/api/v1/timelines/public?local=true&limit=20";
   
   posts = signal<any[]>([]);
   loading = signal(false);
