@@ -1,5 +1,4 @@
 import { Component, signal } from '@angular/core';
-import { FeedComponent } from '../feed.component';
 import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../../../services/auth.service';
