@@ -47,7 +47,7 @@ export class AuthService {
           `${instanceUrl}/oauth/authorize` +
           `?client_id=${this.getClientId()!}` + 
           `&scope=read+write+push` +
-          `&redirect_uri=${config.appUrl}/code` + 
+          `&redirect_uri=${config.appUrl}` + 
           `&response_type=code`,
           "_blank"
         )
@@ -63,7 +63,7 @@ export class AuthService {
     return this.http.post<AppTokenResponse>(`${instanceUrl}/oauth/token`, {
       client_id: this.getClientId(),
       client_secret: this.getClientSecret(),
-      redirect_uri: config.appUrl + '/code',
+      redirect_uri: config.appUrl,
       grant_type: 'authorization_code',
       code,
     });
