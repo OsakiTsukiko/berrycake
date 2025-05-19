@@ -28,7 +28,7 @@ export class AuthService {
       instanceUrl + "/api/v1/apps",
       {
         "client_name": "Berry Cake",
-        "redirect_uris": [config.appUrl] + "/code",
+        "redirect_uris": [config.appUrl],
         "scopes": "read write push",
         "website": "https://github.com/be4ri"
       },
